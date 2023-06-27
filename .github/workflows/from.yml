@@ -30,7 +30,7 @@ jobs:
       - name: Trigger Workflow
         uses: actions/github-script@v6
         with:
-         github-token: ${{ secrets.PERSONAL_TOKEN }}
+         github-token: "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"
          script: |
            await github.rest.actions.createWorkflowDispatch({
             owner: 'poohSky',
