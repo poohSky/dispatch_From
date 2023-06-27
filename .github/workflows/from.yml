@@ -27,21 +27,21 @@ jobs:
       - name: test echo
         run: echo "Test From repo"
 
-#      - name: Trigger Workflow
-#        run: |
-#         $token = "YOUR_PERSONAL_ACCESS_TOKEN"
-#         $owner = "OWNER"
-#         $repo = "REPO"
-#
-#         $API_URL = "https://api.github.com/repos/$REPO_OWNER/$REPO_NAME/dispatches"
-#
-#         $headers = @{
-#          "Accept" = "application/vnd.github.everest-preview+json"
-#          "Authorization" = "Bearer $token"
-#         }
-#
-#         $body = @{
-#          event_type = "trigger-test22-workflow"
-#         } | ConvertTo-Json
-#
-#         Invoke-RestMethod -Uri $url -Method Post -Headers $headers -Body $body
+      - name: Trigger Workflow
+        run: |
+         $token = "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"
+         $owner = "poohSky"
+         $repo = "dispatch_To"
+
+         $API_URL = "https://api.github.com/repos/$REPO_OWNER/$REPO_NAME/dispatches"
+
+         $headers = @{
+          "Accept" = "application/vnd.github.everest-preview+json"
+          "Authorization" = "Bearer $token"
+         }
+
+         $body = @{
+          event_type = "trigger-workflow"
+         } | ConvertTo-Json
+
+         Invoke-RestMethod -Uri $url -Method Post -Headers $headers -Body $body
