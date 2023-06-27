@@ -23,21 +23,24 @@ jobs:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v3
 
-      - name: Trigger Workflow
-        run: |
-         $token = "YOUR_PERSONAL_ACCESS_TOKEN"
-         $owner = "OWNER"
-         $repo = "REPO"
+      - name: test echo
+        run: echo "Test From repo"
 
-         $API_URL = "https://api.github.com/repos/$REPO_OWNER/$REPO_NAME/dispatches"
-
-         $headers = @{
-          "Accept" = "application/vnd.github.everest-preview+json"
-          "Authorization" = "Bearer $token"
-         }
-
-         $body = @{
-          event_type = "trigger-test22-workflow"
-         } | ConvertTo-Json
-
-         Invoke-RestMethod -Uri $url -Method Post -Headers $headers -Body $body
+#      - name: Trigger Workflow
+#        run: |
+#         $token = "YOUR_PERSONAL_ACCESS_TOKEN"
+#         $owner = "OWNER"
+#         $repo = "REPO"
+#
+#         $API_URL = "https://api.github.com/repos/$REPO_OWNER/$REPO_NAME/dispatches"
+#
+#         $headers = @{
+#          "Accept" = "application/vnd.github.everest-preview+json"
+#          "Authorization" = "Bearer $token"
+#         }
+#
+#         $body = @{
+#          event_type = "trigger-test22-workflow"
+#         } | ConvertTo-Json
+#
+#         Invoke-RestMethod -Uri $url -Method Post -Headers $headers -Body $body
