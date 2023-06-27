@@ -28,20 +28,13 @@ jobs:
         run: echo "Test From repo"
 
       - name: Trigger Workflow
-        run: |
-         $token = "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"
-         $owner = "poohSky"
-         $repo = "dispatch_To"
-
-         $url = "https://api.github.com/repos/$owner/$repo/dispatches"
-
-         $headers = @{
-          "Accept" = "application/vnd.github.everest-preview+json"
-          "Authorization" = "Bearer $token"
-         }
-
-         $body = @{
-          event_type = "trigger-workflow"
-         } | ConvertTo-Json
-
-         Invoke-RestMethod -Uri $url -Method Post -Headers $headers -Body $body
+        uses: actions/github-script@v6
+        with:
+         github-token: ${{ secrets.PERSONAL_TOKEN }}
+         script: |
+           await github.rest.actions.createWorkflowDispatch({
+            owner: 'poohSky',
+            repo: 'dispatch_To',
+            workflow_id: 'buildTest.yml',
+            ref: 'main'
+           })
