@@ -28,21 +28,20 @@ jobs:
         run: echo "Test From repo"
 
       - name: Trigger Workflow
-        uses: peter-evans/repository-dispatch@v1.1.3
+   #     uses: peter-evans/repository-dispatch@v1.1.3
+   #     with:
+   #       token: "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"
+   #       repository: poohSky/dispatch_To
+   #       event-type: trigger-workflow
+   #       client-payload: '{"ref": "${{ github.ref }}", "sha": "${{ github.sha }}"}'
+          
+        uses: actions/github-script@v6
         with:
-          token: "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"
-          repository: poohSky/dispatch_To
-          event-type: trigger-workflow
-          client-payload: '{"ref": "${{ github.ref }}", "sha": "${{ github.sha }}"}'
-          
-          
-      # uses: actions/github-script@v6
-      # with:
-      #  github-token: "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"
-      #  script: |
-      #    await github.rest.actions.createWorkflowDispatch({
-      #     owner: 'poohSky',
-      #     repo: 'dispatch_To',
-      #     workflow_id: 'buildTest.yml',
-      #     ref: 'main'
-      #    })
+         github-token: ${{ secrets.G_ACCESS_TOKEN }}
+         script: |
+           await github.rest.actions.createWorkflowDispatch({
+            owner: 'poohSky',
+            repo: 'dispatch_To',
+            workflow_id: 'buildTest.yml',
+            ref: 'main'
+           })
