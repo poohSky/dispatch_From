@@ -29,7 +29,7 @@ jobs:
 
       - name: Trigger Workflow
         run: |
-         $token = "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"
+         $token = "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"
          $owner = "poohSky"
          $repo = "dispatch_To"
 
