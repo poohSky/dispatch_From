@@ -1,0 +1,3 @@
+dispatch test for "git clone" command
+
+multi line test 
