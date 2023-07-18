@@ -24,7 +24,7 @@ jobs:
       - name: Trigger Workflow
         uses: peter-evans/repository-dispatch@v2
         with:
-          token: ${{ secrets.G_ACCESS_TOKEN }}
+          token: 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
           repository: poohSky/dispatch_To
           event-type: trigger-workflow
           client-payload: '{"github": ${{ toJson(github) }}}'
