@@ -43,9 +43,10 @@ jobs:
         with:
           token: ${{ secrets.G_ACCESS_TOKEN }}
           commit-message: Update report
-          branch: example-patches
+          branch: exampleBranch
           delete-branch: true
           title: '[Example] Update report'
+          base: main
           body: |
             Update report
             - Updated with *today's* date
