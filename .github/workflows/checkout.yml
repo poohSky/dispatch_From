@@ -24,7 +24,14 @@ jobs:
     steps:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v3
+        with:
+          persist-credentials: false
 
+      - name: npm install
+        run: |
+          git config —global url.”https://${{ secrets.G_ACCESS_TOKEN }}@github.com/“.insteadOf ssh://git@github.com/
+          npm install
+     
       # Runs a single command using the runners shell
       - name: Run a one-line script
         run: echo Hello, world!
