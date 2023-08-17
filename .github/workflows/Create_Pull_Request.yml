@@ -1,6 +1,6 @@
 # This is a basic workflow to help you get started with Actions
 
-name: checkout_CI
+name: Create_Pull_Request_CI
 
 # Controls when the workflow will run
 on:
@@ -16,7 +16,7 @@ on:
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
   # This workflow contains a single job called "build"
-  build:
+  Create_Pull_Request_Build:
     # The type of runner that the job will run on
     runs-on: [ self-hosted ]
 
@@ -42,9 +42,10 @@ jobs:
           token: ${{ secrets.G_ACCESS_TOKEN }}
           commit-message: Update report
           branch: exampleBranch
-          delete-branch: true
+          delete-branch: false
           title: '[Example] Update report'
           base: main
+          assignees: ${{ github.actor }}
           body: |
             Update report
             - Updated with *today's* date
